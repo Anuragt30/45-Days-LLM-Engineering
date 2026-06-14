@@ -228,6 +228,146 @@ return total</div>
     <p style="margin-top:12px">A failing test isn't failure — it's a free bug report. Trace it back to the <em>plan</em>, fix the logic, run again.</p>
   </section>
 
+  <!-- 11 SECTION DIVIDER: WORKED EXAMPLES -->
+  <section class="slide cover">
+    <div class="brandbar"><span class="dot"></span><span>Softpro School of AI · Day 5</span></div>
+    <div class="kicker">See it in action</div>
+    <h1>4 real problems,<br>one <em>method</em></h1>
+    <p class="lead" style="margin-top:18px">Watch the same 5 steps turn an everyday task into working Python. Plan on the left, code on the right.</p>
+    <div class="footer-note">Notice: every plan is plain English first.</div>
+  </section>
+
+  <!-- 12 WORKED EXAMPLE 1 — café bill (conditionals) -->
+  <section class="slide">
+    <div class="kicker">Worked example 1 · conditionals</div>
+    <h2>Café bill — 10% off above ₹500</h2>
+    <p style="margin-bottom:6px"><strong>By hand:</strong> bill ₹600 is over ₹500 → take off ₹60 → pay <strong>₹540</strong>.</p>
+    <div class="twocol">
+      <div>
+        <div class="label">Plan (step 3)</div>
+        <div class="fx">if bill >= 500:
+    discount = bill * 0.10
+else:
+    discount = 0
+final = bill - discount</div>
+      </div>
+      <div>
+        <div class="label">Python (step 4)</div>
+        <div class="fx">def to_pay(bill):
+    if bill >= 500:
+        bill -= bill * 0.10
+    return bill
+
+print(to_pay(600))   # 540.0</div>
+      </div>
+    </div>
+    <p style="margin-top:12px" class="muted"><strong>Test (step 5):</strong> 600 → 540 · 500 → 450 (boundary) · 499 → 499.</p>
+  </section>
+
+  <!-- 13 WORKED EXAMPLE 2 — class topper (best-so-far) -->
+  <section class="slide">
+    <div class="kicker">Worked example 2 · loop + best-so-far</div>
+    <h2>Find the class topper</h2>
+    <p style="margin-bottom:6px"><strong>By hand:</strong> marks 72, 88, 65 → keep the biggest seen so far: 72 → 88 → 88. Topper = <strong>88</strong>.</p>
+    <div class="twocol">
+      <div>
+        <div class="label">Plan (step 3)</div>
+        <div class="fx">highest = 0
+for each of the 5 marks:
+    read mark
+    if mark > highest:
+        highest = mark
+show highest</div>
+      </div>
+      <div>
+        <div class="label">Python (step 4)</div>
+        <div class="fx">highest = 0
+for i in range(5):
+    mark = int(input("Mark: "))
+    if mark > highest:
+        highest = mark
+print("Topper:", highest)</div>
+      </div>
+    </div>
+    <p style="margin-top:12px" class="muted"><strong>Pattern:</strong> "best so far" — one champion variable, updated only when beaten.</p>
+  </section>
+
+  <!-- 14 WORKED EXAMPLE 3 — count vowels (counter) -->
+  <section class="slide">
+    <div class="kicker">Worked example 3 · loop + counter</div>
+    <h2>Count the vowels in a name</h2>
+    <p style="margin-bottom:6px"><strong>By hand:</strong> "Saanvi" → S a a n v i → vowels a, a, i → <strong>3</strong>.</p>
+    <div class="twocol">
+      <div>
+        <div class="label">Plan (step 3)</div>
+        <div class="fx">count = 0
+for each letter in the name:
+    if letter is a vowel:
+        count = count + 1
+return count</div>
+      </div>
+      <div>
+        <div class="label">Python (step 4)</div>
+        <div class="fx">def count_vowels(name):
+    count = 0
+    for ch in name.lower():
+        if ch in "aeiou":
+            count += 1
+    return count
+
+print(count_vowels("Saanvi"))  # 3</div>
+      </div>
+    </div>
+    <p style="margin-top:12px" class="muted"><strong>Pattern:</strong> "counter" — start at 0, add 1 each time a condition is true.</p>
+  </section>
+
+  <!-- 15 WORKED EXAMPLE 4 — decompose: grade calculator -->
+  <section class="slide">
+    <div class="kicker">Worked example 4 · decompose into functions</div>
+    <h2>Marks → grade (two small functions)</h2>
+    <p style="margin-bottom:6px"><strong>Big task, split in two:</strong> first the <em>average</em>, then the <em>grade band</em>. Solve each alone.</p>
+    <div class="twocol">
+      <div>
+        <div class="label">Plan (step 3)</div>
+        <div class="fx">average = (a + b + c) / 3
+
+if average >= 90: grade "A"
+elif average >= 75: grade "B"
+elif average >= 40: grade "C"
+else:               grade "F"</div>
+      </div>
+      <div>
+        <div class="label">Python (step 4)</div>
+        <div class="fx">def average(a, b, c):
+    return (a + b + c) / 3
+
+def grade(avg):
+    if avg >= 90: return "A"
+    if avg >= 75: return "B"
+    if avg >= 40: return "C"
+    return "F"
+
+print(grade(average(82, 91, 70)))  # B</div>
+      </div>
+    </div>
+    <p style="margin-top:10px" class="muted"><strong>Pattern:</strong> "decompose" — two simple functions beat one tangled block.</p>
+  </section>
+
+  <!-- 16 PATTERN GALLERY — real tasks -> pattern -->
+  <section class="slide">
+    <div class="kicker">Train your eye</div>
+    <h2>Real task → which pattern?</h2>
+    <p>Once you know the toolbox, you start <em>seeing</em> the pattern inside the words:</p>
+    <div class="grid g3" style="margin-top:6px">
+      <div class="card"><h3>🛒 Cart total</h3><p>Add up every item's price → <strong>accumulator</strong>.</p></div>
+      <div class="card"><h3>💬 Long messages</h3><p>How many texts are over 160 chars → <strong>counter</strong>.</p></div>
+      <div class="card"><h3>❌ Any backlog?</h3><p>Did <em>any</em> subject fail → <strong>flag / search + break</strong>.</p></div>
+      <div class="card"><h3>🏆 Class topper</h3><p>Highest mark in the room → <strong>best so far</strong>.</p></div>
+      <div class="card"><h3>🔢 Times table</h3><p>Print 7×1 … 7×10 → <strong>loop + range</strong>.</p></div>
+      <div class="card"><h3>📱 Valid mobile?</h3><p>Exactly 10 digits → <strong>conditionals + string check</strong>.</p></div>
+    </div>
+  </section>
+
   <!-- 11 DEBUGGING MINDSET -->
   <section class="slide">
     <div class="kicker">When it breaks</div>
@@ -288,7 +428,7 @@ return total</div>
 
 </div>
 
-<div class="count" id="count">1 / 15</div>
+<div class="count" id="count">1 / 21</div>
 <div class="nav"><button id="prev" aria-label="Previous">‹</button><button id="full" aria-label="Fullscreen">⛶</button><button id="next" aria-label="Next">›</button></div>
 
 <script>
