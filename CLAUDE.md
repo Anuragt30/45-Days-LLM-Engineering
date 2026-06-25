@@ -73,8 +73,10 @@ Phase-X-Name/Day-NN-Topic-In-Kebab-Case/
   cohort.
 - Reuse the course's own exercises where they exist (Magic Trick, BMI Calculator, Rock-Paper-
   Scissors, Todo List, etc. — see `dump/python.txt`).
-- **Free-tier first, multi-provider.** When the AI track starts: default to Gemini, also show
-  Groq / Ollama / Hugging Face. Never write localhost-only or paid-API-only code.
+- **Free-tier first, multi-provider.** In the AI track: default to **Groq** (genuinely free tier;
+  Day 9 onward uses `groq` + `llama-3.1-8b-instant`), also show Ollama / Hugging Face / Gemini. For
+  **embeddings** (Day 16+), default to local `sentence-transformers`; Gemini embeddings are optional.
+  Never write localhost-only or paid-API-only code.
 
 ## Running code (Windows environment)
 - **Use the real CPython for running scripts and pip:**

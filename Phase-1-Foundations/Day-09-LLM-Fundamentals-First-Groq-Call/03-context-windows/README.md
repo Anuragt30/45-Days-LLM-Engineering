@@ -7,8 +7,8 @@ covers *both* your input **and** its output:
 context window  =  prompt tokens  +  answer tokens
 ```
 
-If you blow past it, the API errors (or silently drops text). Modern Gemini models have very large
-windows (hundreds of thousands of tokens), but it still matters:
+If you blow past it, the API errors (or silently drops text). Modern hosted models have large
+windows (tens to hundreds of thousands of tokens), but it still matters:
 
 | Why it matters | Even with a big window |
 |----------------|------------------------|

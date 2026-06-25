@@ -1,4 +1,4 @@
-# Day 09 — LLM Fundamentals & Your First Gemini Call
+# Day 09 — LLM Fundamentals & Your First Groq Call
 
 Yesterday you set up the engineering habits. Today you actually **call an LLM** — and learn the four
 ideas you must understand to use one well: **tokens, context windows, sampling (temperature/top-p),
@@ -6,7 +6,7 @@ and model families**.
 
 ## Learning objectives
 By the end of today you can:
-- Make a real **Gemini API call** from Python (free tier)
+- Make a real **Groq API call** from Python (free tier)
 - Explain what **tokens** are and count them
 - Reason about **context windows** (how much text fits)
 - Control creativity with **temperature** and **top-p**
@@ -16,11 +16,11 @@ By the end of today you can:
 
 | # | Module | What it covers |
 |--:|--------|----------------|
-| 01 | [first-gemini-call](01-first-gemini-call/) | Your first real LLM call with `google-generativeai` |
+| 01 | [first-groq-call](01-first-groq-call/) | Your first real LLM call with the `groq` SDK |
 | 02 | [tokens-and-tokenization](02-tokens-and-tokenization/) | What tokens are; counting them |
 | 03 | [context-windows](03-context-windows/) | How much text fits; the prompt + answer budget |
 | 04 | [temperature-and-sampling](04-temperature-and-sampling/) | Temperature & top-p: control randomness |
-| 05 | [model-families](05-model-families/) | Flash vs Pro; Gemini / Groq / Ollama |
+| 05 | [model-families](05-model-families/) | Small vs large; Groq / Ollama / HF / Gemini |
 
 Then practise in **[exercises/](exercises/)**.
 
@@ -28,15 +28,15 @@ Then practise in **[exercises/](exercises/)**.
 ```bash
 pip install -r requirements.txt
 ```
-Get a **free** key at [Google AI Studio](https://aistudio.google.com/apikey) and put it in a `.env`:
+Get a **free** key at [console.groq.com/keys](https://console.groq.com/keys) and put it in a `.env`:
 ```bash
 # .env  (never commit this)
-GEMINI_API_KEY=your_key_here
+GROQ_API_KEY=your_key_here
 ```
 
 ## How to run
 ```bash
-python 01-first-gemini-call/first_call.py
+python 01-first-groq-call/first_call.py
 ```
 
 ## Today's exercise

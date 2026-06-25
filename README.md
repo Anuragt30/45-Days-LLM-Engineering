@@ -53,7 +53,7 @@ Days **1–7 are a Python power-up** (everything you need before touching an LLM
 | 6 | Data structures: lists, dicts, tuples, sets |
 | 7 | Errors, modules & OOP |
 
-Days **8–15** begin the AI track: HTTP/`requests`, async, `dotenv`, Pydantic, the **first Gemini API call**, prompt engineering, multi-provider patterns, data handling, and Streamlit — leading into **Mini-project 1: AI Content Summarizer**.
+Days **8–15** begin the AI track: HTTP/`requests`, async, `dotenv`, Pydantic, the **first Groq API call**, prompt engineering, multi-provider patterns, data handling, and Streamlit — leading into **Mini-project 1: AI Content Summarizer**.
 
 ### Phase 2 — RAG & Memory (Days 16–25)
 Embeddings, semantic search, Chroma, pgvector/Supabase, chunking, retrieval, re-ranking, LlamaIndex → **Mini-project 2: Document Q&A**.
@@ -65,7 +65,7 @@ Function calling, LangChain, LangGraph, ReAct, CrewAI, AutoGen, OpenClaw, observ
 Capstone build sprint, deployment, demo day, resume/portfolio.
 
 ## The free-tier stack
-Gemini (primary) · Groq · Ollama (local) · Hugging Face · Chroma / pgvector + Supabase · Streamlit / Gradio · Langfuse · deployed free on HF Spaces / Streamlit Cloud / Render.
+Groq (primary) · Ollama (local) · Hugging Face · Gemini · Chroma / pgvector + Supabase · Streamlit / Gradio · Langfuse · deployed free on HF Spaces / Streamlit Cloud / Render.
 
 > **Everything ships. Free-tier first. Multi-provider.** You can complete this whole course at ₹0 infra cost.
 

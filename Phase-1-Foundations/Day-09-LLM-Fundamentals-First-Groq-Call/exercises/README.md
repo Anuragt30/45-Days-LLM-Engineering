@@ -1,7 +1,7 @@
 # Day 09 — Exercises
 
 ```bash
-pip install google-generativeai python-dotenv   # + GEMINI_API_KEY in .env
+pip install groq python-dotenv   # + GROQ_API_KEY in .env
 ```
 
 Try each yourself, then check `*_solution.py`.
@@ -11,10 +11,12 @@ Try each yourself, then check `*_solution.py`.
 ## Exercise 1 — Command-line chatbot 💬
 Build a chatbot you can talk to in a loop, that **remembers the conversation**.
 
-**Your task:** in `chatbot.py`, start a chat with `model.start_chat()`, then loop: read input with
-`input()`, send it with `chat.send_message(...)`, print the reply. Quit when the user types `quit`.
+**Your task:** in `chatbot.py`, keep a `messages` list (start with a `system` turn). Each loop: read
+`input()`, append it as a `user` turn, call `client.chat.completions.create(...)`, print the reply,
+**and append the reply as an `assistant` turn**. Quit when the user types `quit`.
 
-*Hint:* `chat = model.start_chat()` keeps history for you across `send_message` calls.
+*Hint:* the API has no memory — the growing `messages` list *is* the memory. You resend the whole
+conversation each call, and remembering the bot's own replies is what keeps it coherent.
 
 ➡ Solution: [`chatbot_solution.py`](chatbot_solution.py)
 
@@ -26,6 +28,6 @@ See how temperature changes answers for the **same** prompt.
 **Your task:** in `temperature_explorer.py`, pick one prompt and call the model at temperatures
 `0.0`, `0.7`, and `1.4`, printing each answer under its temperature. Notice how variety increases.
 
-*Hint:* use `GenerationConfig(temperature=t)` in `generate_content(...)`.
+*Hint:* pass `temperature=t` directly to `client.chat.completions.create(...)`.
 
 ➡ Solution: [`temperature_explorer_solution.py`](temperature_explorer_solution.py)

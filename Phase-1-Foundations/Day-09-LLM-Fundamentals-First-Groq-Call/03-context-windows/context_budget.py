@@ -10,7 +10,7 @@ Run:
 """
 
 # A made-up small window so the numbers are easy to read.
-# (Real Gemini models are far larger -- this is just to show the idea.)
+# (Real hosted models are far larger -- this is just to show the idea.)
 CONTEXT_WINDOW = 1000          # total tokens allowed (prompt + answer)
 ANSWER_BUDGET = 300            # tokens we want to reserve for the model's reply
 

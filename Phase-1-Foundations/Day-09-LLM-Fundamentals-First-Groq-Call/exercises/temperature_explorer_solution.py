@@ -7,22 +7,21 @@ Run: python temperature_explorer_solution.py
 import os
 
 from dotenv import load_dotenv
-import google.generativeai as genai
-from google.generativeai.types import GenerationConfig
+from groq import Groq
 
 load_dotenv()
-genai.configure(api_key=os.environ["GEMINI_API_KEY"])
-model = genai.GenerativeModel("gemini-2.0-flash")
+client = Groq(api_key=os.environ["GROQ_API_KEY"])
 
 prompt = "Write a one-line tagline for a chai startup."
 
 for temperature in (0.0, 0.7, 1.4):
-    response = model.generate_content(
-        prompt,
-        generation_config=GenerationConfig(temperature=temperature),
+    response = client.chat.completions.create(
+        model="llama-3.1-8b-instant",
+        messages=[{"role": "user", "content": prompt}],
+        temperature=temperature,
     )
     print(f"temperature {temperature}:")
-    print("  ", response.text.strip())
+    print("  ", response.choices[0].message.content.strip())
     print()
 
 print("Higher temperature -> more variety and surprise in the taglines.")

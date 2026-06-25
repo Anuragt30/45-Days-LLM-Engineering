@@ -20,18 +20,18 @@ You usually tune **temperature first**; leave `top_p` near its default unless yo
 
 ## How to set them
 ```python
-from google.generativeai.types import GenerationConfig
-
-model.generate_content(
-    "Give me a startup name for an AI tutoring app.",
-    generation_config=GenerationConfig(temperature=0.9, top_p=0.95),
+client.chat.completions.create(
+    model="llama-3.1-8b-instant",
+    messages=[{"role": "user", "content": "Give me a startup name for an AI tutoring app."}],
+    temperature=0.9,
+    top_p=0.95,
 )
 ```
 
 ## The rule to remember
 > **Need the same answer every time? Use a low temperature.** Need variety? Turn it up.
 
-Run it to see the same prompt at low vs high temperature (needs `GEMINI_API_KEY`):
+Run it to see the same prompt at low vs high temperature (needs `GROQ_API_KEY`):
 
 ```bash
 python temperature_demo.py

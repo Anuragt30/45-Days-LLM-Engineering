@@ -52,16 +52,16 @@ runnable examples, and an `exercises/` set.
 | Day | Topic |
 |----:|-------|
 | 8 | Python for AI: `requests`, async basics, `dotenv`, **Pydantic**, type hints |
-| 9 | LLM fundamentals: tokens, context windows, sampling (temperature, top-p), model families — **first Gemini API call** |
+| 9 | LLM fundamentals: tokens, context windows, sampling (temperature, top-p), model families — **first Groq API call** |
 | 10 | Prompt engineering I: system prompts, zero-shot, few-shot, chain-of-thought |
 | 11 | Prompt engineering II: structured outputs with Pydantic, JSON mode |
-| 12 | Multi-provider patterns: one abstraction over Gemini, Groq, Ollama |
+| 12 | Multi-provider patterns: one abstraction over Groq, Ollama, Gemini |
 | 13 | Working with data: JSON, CSV, PDF (PyPDF2/pdfplumber), lightweight scraping (BeautifulSoup) |
 | 14 | Streamlit crash course + error handling, retries, rate limits, cost awareness |
 | 15 | **Mini-project 1 build + deploy + demo** |
 
 **🚀 Project 1 — AI Content Summarizer.** Input: PDF / article URL / transcript. Output:
-structured summary (key points, TL;DR, action items). Stack: Streamlit + Gemini + Python.
+structured summary (key points, TL;DR, action items). Stack: Streamlit + Groq + Python.
 Deployed free on Hugging Face Spaces or Streamlit Community Cloud.
 
 ---
@@ -83,7 +83,7 @@ Deployed free on Hugging Face Spaces or Streamlit Community Cloud.
 | 25 | **Mini-project 2 deploy + demo** |
 
 **🚀 Project 2 — Document Q&A System.** Input: upload notes / textbooks / papers. Output:
-natural-language questions → cited answers. Stack: Streamlit + Chroma or pgvector + Gemini +
+natural-language questions → cited answers. Stack: Streamlit + Chroma or pgvector + Groq +
 LlamaIndex. Deployed free on HF Spaces.
 
 ---
@@ -128,7 +128,7 @@ tools. Traced in Langfuse. Deployed free.
 
 **🏁 Capstone (student picks one, must be deployed + demoable):**
 1. Multi-agent research assistant — topic in, briefing out, with citations
-2. WhatsApp AI business assistant — Twilio + Gemini + Supabase
+2. WhatsApp AI business assistant — Twilio + Groq + Supabase
 3. AI customer support for a local business — RAG on their FAQ/catalog
 4. Code review agent — runs on a GitHub repo, posts PR comments
 5. Educational tutor for one subject — adaptive study buddy
@@ -146,5 +146,5 @@ tools. Traced in Langfuse. Deployed free.
 - Certificate from Softpro School of AI
 
 ## The free-tier stack (₹0 infra)
-Gemini (primary) · Groq · Ollama (local) · Hugging Face · Chroma / pgvector + Supabase ·
+Groq (primary) · Ollama (local) · Hugging Face · Gemini · Chroma / pgvector + Supabase ·
 Streamlit / Gradio · Langfuse · GitHub · deployed on HF Spaces / Streamlit Cloud / Render / Vercel.
