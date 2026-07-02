@@ -2,16 +2,23 @@
 Day 18 - Exercise 1 (STUB): FAQ retrieval bot with Chroma.
 """
 
+# `Path` helps us build a stable folder path for the exercise database.
 from pathlib import Path
 
+# Chroma stores FAQ vectors and retrieves the closest match.
 import chromadb
+# SentenceTransformer embeds FAQ questions and the user's question.
 from sentence_transformers import SentenceTransformer
 
 
+# `BASE_DIR` points to the Day 18 folder.
 BASE_DIR = Path(__file__).resolve().parent.parent
+# `DB_DIR` is the local Chroma folder for this exercise.
 DB_DIR = BASE_DIR / "exercise_faq_chroma"
+# `COLLECTION_NAME` is the FAQ collection inside the database.
 COLLECTION_NAME = "faq_collection"
 
+# Each FAQ has an id, a question to embed, and an answer to return later.
 FAQS = [
     {
         "id": "faq-1",
@@ -32,10 +39,14 @@ FAQS = [
 
 
 def main() -> None:
+    # Load the local embedding model.
     model = SentenceTransformer("all-MiniLM-L6-v2")
+    # Open the exercise database on disk.
     client = chromadb.PersistentClient(path=str(DB_DIR))
+    # Create or reuse the FAQ collection.
     collection = client.get_or_create_collection(
         name=COLLECTION_NAME,
+        # Use cosine distance so retrieval matches the rest of the lesson.
         metadata={"hnsw:space": "cosine"},
     )
 
@@ -44,14 +55,17 @@ def main() -> None:
 
     # TODO: upsert FAQs into Chroma with ids, documents, answers in metadata, and embeddings
 
+    # This is the user's natural-language question.
     user_question = "How do I get my payment back?"
 
     # TODO: embed the user question and query the collection for the best match
     result = None
 
+    # Print the input question so students can compare it with the matched FAQ.
     print("User question:", user_question)
     print("TODO: print the matched FAQ question and answer")
 
 
+# Run the exercise only when this file is executed directly.
 if __name__ == "__main__":
     main()
